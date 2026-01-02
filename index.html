@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>80天減重計畫</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>80 天減重計畫</h1>
+        <p class="subtitle">119 kg → 99 kg | 目標減重 20 公斤</p>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-tab="overview">總覽</button>
+        <button class="nav-btn" data-tab="daily">每日計畫</button>
+        <button class="nav-btn" data-tab="menu">菜單</button>
+        <button class="nav-btn" data-tab="shopping">採買清單</button>
+        <button class="nav-btn" data-tab="tracker">追蹤表</button>
+    </nav>
+
+    <main>
+        <!-- 總覽 -->
+        <section id="overview" class="tab-content active">
+            <div class="card">
+                <h2>營養目標</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">2300</span>
+                        <span class="stat-label">基礎代謝 kcal</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">1800-2200</span>
+                        <span class="stat-label">每日攝取 kcal</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">180-220g</span>
+                        <span class="stat-label">蛋白質目標</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">MARS</span>
+                        <span class="stat-label">水解乳清 35g/包</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>階段總覽</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>階段</th>
+                            <th>天數</th>
+                            <th>重點</th>
+                            <th>預期減重</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第一階段</td>
+                            <td>Day 1-14</td>
+                            <td>適應期：建立習慣</td>
+                            <td>2-3 kg</td>
+                        </tr>
+                        <tr>
+                            <td>第二階段</td>
+                            <td>Day 15-42</td>
+                            <td>燃脂期：穩定執行</td>
+                            <td>7-9 kg</td>
+                        </tr>
+                        <tr>
+                            <td>第三階段</td>
+                            <td>Day 43-80</td>
+                            <td>衝刺期：最大化燃脂</td>
+                            <td>15-20 kg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>運動參數（適應期 Day 1-14）</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>運動類型</th>
+                            <th>時間</th>
+                            <th>速率/強度</th>
+                            <th>預估距離</th>
+                            <th>預估消耗</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge walk">快走</span></td>
+                            <td>40-50 分鐘</td>
+                            <td>5.5-6.0 km/h</td>
+                            <td>3.5-5.0 km</td>
+                            <td>250-350 kcal</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bike">飛輪</span></td>
+                            <td>30-40 分鐘</td>
+                            <td>70-85 RPM / 阻力 3-5</td>
+                            <td>10-15 km</td>
+                            <td>250-350 kcal</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge swim">游泳</span></td>
+                            <td>30-40 分鐘</td>
+                            <td>休閒配速</td>
+                            <td>800-1200 m</td>
+                            <td>300-400 kcal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>每週運動安排（Week 1-2）</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>星期</th>
+                            <th>下午有氧</th>
+                            <th>晚間有氧</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>一</td>
+                            <td>快走 45 分（5.5 km/h，4 km）</td>
+                            <td>飛輪 40 分（75 RPM，12 km）</td>
+                        </tr>
+                        <tr>
+                            <td>二</td>
+                            <td>飛輪 40 分（75 RPM，12 km）</td>
+                            <td>快走 40 分（5.5 km/h，3.7 km）</td>
+                        </tr>
+                        <tr>
+                            <td>三</td>
+                            <td><span class="badge swim">游泳 40 分（1000 m）</span></td>
+                            <td>快走 40 分（5.5 km/h，3.7 km）</td>
+                        </tr>
+                        <tr>
+                            <td>四</td>
+                            <td>快走 45 分（5.5 km/h，4 km）</td>
+                            <td>飛輪 40 分（75 RPM，12 km）</td>
+                        </tr>
+                        <tr>
+                            <td>五</td>
+                            <td>飛輪 40 分（75 RPM，12 km）</td>
+                            <td>快走 40 分（5.5 km/h，3.7 km）</td>
+                        </tr>
+                        <tr>
+                            <td>六</td>
+                            <td><span class="badge swim">游泳 45 分（1100 m）</span></td>
+                            <td>快走 40 分（5.5 km/h，3.7 km）</td>
+                        </tr>
+                        <tr>
+                            <td>日</td>
+                            <td>散步 40 分（恢復）</td>
+                            <td>散步 30 分（恢復）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 每日計畫 -->
+        <section id="daily" class="tab-content">
+            <div class="card">
+                <h2>選擇日期</h2>
+                <div class="day-selector">
+                    <label for="currentDay">目前是第幾天：</label>
+                    <input type="number" id="currentDay" min="1" max="80" value="1">
+                    <button id="showDayBtn" class="btn-primary">顯示計畫</button>
+                </div>
+            </div>
+
+            <div id="dayPlan" class="card">
+                <h2>Day <span id="dayNumber">1</span>（<span id="dayOfWeek">週一</span>）</h2>
+                <table id="dailySchedule">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>項目</th>
+                            <th>內容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 由 JS 動態生成 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>每日檢查清單</h2>
+                <div class="checklist">
+                    <h3>早上</h3>
+                    <label class="check-item"><input type="checkbox" data-key="morning-1"> 量體重並記錄</label>
+                    <label class="check-item"><input type="checkbox" data-key="morning-2"> 喝水 500ml</label>
+                    <label class="check-item"><input type="checkbox" data-key="morning-3"> 吃早餐（高蛋白）</label>
+
+                    <h3>中午</h3>
+                    <label class="check-item"><input type="checkbox" data-key="noon-1"> 吃午餐（含碳水）</label>
+                    <label class="check-item"><input type="checkbox" data-key="noon-2"> 飯後散步 30 分鐘</label>
+
+                    <h3>下午</h3>
+                    <label class="check-item"><input type="checkbox" data-key="afternoon-1"> 完成下午有氧</label>
+                    <label class="check-item"><input type="checkbox" data-key="afternoon-2"> 收操走路 20-30 分鐘</label>
+
+                    <h3>晚上</h3>
+                    <label class="check-item"><input type="checkbox" data-key="evening-1"> 吃晚餐（低碳）</label>
+                    <label class="check-item"><input type="checkbox" data-key="evening-2"> 完成晚間有氧</label>
+                    <label class="check-item"><input type="checkbox" data-key="evening-3"> 23:30 前就寢</label>
+
+                    <h3>每日必達</h3>
+                    <label class="check-item"><input type="checkbox" data-key="daily-1"> 喝水 2000-3000ml</label>
+                    <label class="check-item"><input type="checkbox" data-key="daily-2"> 蛋白質攝取 180g 以上</label>
+                    <label class="check-item"><input type="checkbox" data-key="daily-3"> 睡眠 7-8 小時</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 菜單 -->
+        <section id="menu" class="tab-content">
+            <div class="card">
+                <h2>早餐選項（450-600 kcal）</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>1. 經典雞胸蛋</h4>
+                        <ul>
+                            <li>雞胸肉 200g</li>
+                            <li>水煮蛋 2顆</li>
+                            <li>希臘優格 150g</li>
+                            <li>黑咖啡 1杯</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">495 kcal</span>
+                            <span class="protein">73g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>2. 燕麥優格碗</h4>
+                        <ul>
+                            <li>燕麥片 60g</li>
+                            <li>希臘優格 200g</li>
+                            <li>MARS水解乳清 1包</li>
+                            <li>藍莓 50g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">570 kcal</span>
+                            <span class="protein">54g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>3. 蛋白煎餅</h4>
+                        <ul>
+                            <li>蛋白 5顆</li>
+                            <li>全蛋 2顆</li>
+                            <li>燕麥粉 40g</li>
+                            <li>希臘優格 150g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">505 kcal</span>
+                            <span class="protein">50g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>4. 日式早餐</h4>
+                        <ul>
+                            <li>鮭魚 150g</li>
+                            <li>水煮蛋 2顆</li>
+                            <li>小黃瓜 100g</li>
+                            <li>味噌湯 1碗</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">470 kcal</span>
+                            <span class="protein">46g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>5. 高蛋白奶昔</h4>
+                        <ul>
+                            <li>MARS水解乳清 2包</li>
+                            <li>無糖豆漿 400ml</li>
+                            <li>燕麥片 50g</li>
+                            <li>花生醬 15g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">690 kcal</span>
+                            <span class="protein">75g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>6. 蛋捲 + 雞胸</h4>
+                        <ul>
+                            <li>全蛋 3顆 + 蛋白 2顆</li>
+                            <li>雞胸肉 150g</li>
+                            <li>菠菜 80g</li>
+                            <li>起司絲 20g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">505 kcal</span>
+                            <span class="protein">67g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>7. 希臘優格碗</h4>
+                        <ul>
+                            <li>希臘優格 300g</li>
+                            <li>MARS水解乳清 1包</li>
+                            <li>堅果 20g</li>
+                            <li>黑咖啡 1杯</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">525 kcal</span>
+                            <span class="protein">60g 蛋白質</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>午餐選項（650-800 kcal）</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>1. 雞胸便當</h4>
+                        <ul>
+                            <li>糙米飯 180g</li>
+                            <li>雞胸肉 350g</li>
+                            <li>青花菜 250g</li>
+                            <li>橄欖油 1湯匙</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">790 kcal</span>
+                            <span class="protein">92g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>2. 鮭魚餐</h4>
+                        <ul>
+                            <li>地瓜 200g</li>
+                            <li>鮭魚 250g</li>
+                            <li>蘆筍 200g</li>
+                            <li>檸檬汁</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">670 kcal</span>
+                            <span class="protein">57g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>3. 雞腿排餐</h4>
+                        <ul>
+                            <li>紫米飯 180g</li>
+                            <li>去骨雞腿排 300g</li>
+                            <li>四季豆 250g</li>
+                            <li>蒜頭調味</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">680 kcal</span>
+                            <span class="protein">70g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>4. 蝦仁炒飯</h4>
+                        <ul>
+                            <li>糙米飯 180g</li>
+                            <li>蝦仁 300g</li>
+                            <li>蛋 2顆</li>
+                            <li>青菜 150g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">725 kcal</span>
+                            <span class="protein">83g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>5. 牛肉沙拉碗</h4>
+                        <ul>
+                            <li>瘦牛肉 300g</li>
+                            <li>綜合生菜 200g</li>
+                            <li>酪梨 50g</li>
+                            <li>橄欖油 + 醋</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">660 kcal</span>
+                            <span class="protein">74g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>6. 鯛魚定食</h4>
+                        <ul>
+                            <li>糙米飯 180g</li>
+                            <li>鯛魚 350g</li>
+                            <li>味噌湯 1碗</li>
+                            <li>燙青菜 200g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">640 kcal</span>
+                            <span class="protein">89g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>7. 雞肉蔬菜咖哩</h4>
+                        <ul>
+                            <li>花椰菜米 250g</li>
+                            <li>雞胸肉 350g</li>
+                            <li>咖哩粉 + 椰奶</li>
+                            <li>蔬菜丁 150g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">610 kcal</span>
+                            <span class="protein">90g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>8. 墨西哥雞肉碗</h4>
+                        <ul>
+                            <li>糙米飯 150g</li>
+                            <li>雞胸肉絲 350g</li>
+                            <li>黑豆 50g</li>
+                            <li>酪梨 + 莎莎醬</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">710 kcal</span>
+                            <span class="protein">91g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>9. 豆腐雞肉鍋</h4>
+                        <ul>
+                            <li>板豆腐 250g</li>
+                            <li>雞胸肉 300g</li>
+                            <li>蔬菜 350g</li>
+                            <li>蛋 2顆</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">860 kcal</span>
+                            <span class="protein">106g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>10. 牛肉燴飯</h4>
+                        <ul>
+                            <li>糙米飯 180g</li>
+                            <li>牛腱肉 300g</li>
+                            <li>洋蔥 + 蘑菇</li>
+                            <li>青菜 150g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">732 kcal</span>
+                            <span class="protein">78g 蛋白質</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>晚餐選項（550-750 kcal）</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>1. 清蒸雞胸</h4>
+                        <ul>
+                            <li>雞胸肉 350g</li>
+                            <li>花椰菜 250g</li>
+                            <li>水煮蛋 1顆</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">545 kcal</span>
+                            <span class="protein">93g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>2. 烤鮭魚</h4>
+                        <ul>
+                            <li>鮭魚 300g</li>
+                            <li>蘆筍 250g</li>
+                            <li>小番茄 100g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">610 kcal</span>
+                            <span class="protein">66g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>3. 蒜香蝦</h4>
+                        <ul>
+                            <li>蝦仁 350g</li>
+                            <li>青花菜 250g</li>
+                            <li>蒜頭 + 橄欖油</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">555 kcal</span>
+                            <span class="protein">82g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>4. 雞肉沙拉</h4>
+                        <ul>
+                            <li>雞胸肉 350g</li>
+                            <li>綜合生菜 250g</li>
+                            <li>酪梨 50g + 蛋 1顆</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">620 kcal</span>
+                            <span class="protein">90g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>5. 鯛魚清蒸</h4>
+                        <ul>
+                            <li>鯛魚 400g</li>
+                            <li>薑絲 + 蔥花</li>
+                            <li>菠菜 250g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">482 kcal</span>
+                            <span class="protein">96g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>6. 豆腐雞肉</h4>
+                        <ul>
+                            <li>雞胸肉 300g</li>
+                            <li>板豆腐 250g</li>
+                            <li>青菜 250g</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">605 kcal</span>
+                            <span class="protein">94g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>7. 牛肉蔬菜</h4>
+                        <ul>
+                            <li>瘦牛肉 350g</li>
+                            <li>甜椒 150g</li>
+                            <li>洋蔥 + 蘑菇</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">637 kcal</span>
+                            <span class="protein">86g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>8. 蛋白歐姆蛋</h4>
+                        <ul>
+                            <li>蛋白 8顆 + 全蛋 2顆</li>
+                            <li>雞胸肉丁 250g</li>
+                            <li>蔬菜丁 + 起司</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">695 kcal</span>
+                            <span class="protein">107g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>9. 韓式泡菜雞</h4>
+                        <ul>
+                            <li>雞胸肉 350g</li>
+                            <li>泡菜 150g</li>
+                            <li>豆腐 150g + 蛋</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">604 kcal</span>
+                            <span class="protein">101g 蛋白質</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <h4>10. 牛排蔬菜</h4>
+                        <ul>
+                            <li>牛排 350g</li>
+                            <li>櫛瓜 200g</li>
+                            <li>番茄 + 蘑菇</li>
+                        </ul>
+                        <div class="menu-stats">
+                            <span class="kcal">617 kcal</span>
+                            <span class="protein">87g 蛋白質</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>一週菜單範例</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>日</th>
+                            <th>早餐</th>
+                            <th>午餐</th>
+                            <th>晚餐</th>
+                            <th>總熱量</th>
+                            <th>蛋白質</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>週一</td>
+                            <td>經典雞胸蛋</td>
+                            <td>雞胸便當</td>
+                            <td>清蒸雞胸</td>
+                            <td>1830</td>
+                            <td>258g</td>
+                        </tr>
+                        <tr>
+                            <td>週二</td>
+                            <td>燕麥優格碗</td>
+                            <td>鮭魚餐</td>
+                            <td>蒜香蝦</td>
+                            <td>1835</td>
+                            <td>203g</td>
+                        </tr>
+                        <tr>
+                            <td>週三</td>
+                            <td>日式早餐</td>
+                            <td>雞腿排餐</td>
+                            <td>鯛魚清蒸</td>
+                            <td>1632</td>
+                            <td>212g</td>
+                        </tr>
+                        <tr>
+                            <td>週四</td>
+                            <td>高蛋白奶昔</td>
+                            <td>蝦仁炒飯</td>
+                            <td>豆腐雞肉</td>
+                            <td>1980</td>
+                            <td>248g</td>
+                        </tr>
+                        <tr>
+                            <td>週五</td>
+                            <td>蛋捲+雞胸</td>
+                            <td>牛肉沙拉碗</td>
+                            <td>烤鮭魚</td>
+                            <td>1775</td>
+                            <td>207g</td>
+                        </tr>
+                        <tr>
+                            <td>週六</td>
+                            <td>希臘優格碗</td>
+                            <td>墨西哥雞肉碗</td>
+                            <td>牛肉蔬菜</td>
+                            <td>1852</td>
+                            <td>235g</td>
+                        </tr>
+                        <tr>
+                            <td>週日</td>
+                            <td>蛋白煎餅</td>
+                            <td>鯛魚定食</td>
+                            <td>雞肉沙拉</td>
+                            <td>1765</td>
+                            <td>229g</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 採買清單 -->
+        <section id="shopping" class="tab-content">
+            <div class="card">
+                <h2>每週必買（約 NT$ 2,500-3,000）</h2>
+                <div class="shopping-list">
+                    <label class="check-item"><input type="checkbox" data-key="shop-1"> 雞胸肉（生）× 3包（每餐1塊，約400g）</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-2"> 水煮蛋 × 2盒（或雞蛋 1盒）</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-3"> 希臘優格 × 2罐</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-4"> 青花菜 × 2包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-5"> 綜合生菜 × 2包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-6"> 小黃瓜 × 2包</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>每週/兩週補充（約 NT$ 1,000-1,500）</h2>
+                <div class="shopping-list">
+                    <label class="check-item"><input type="checkbox" data-key="shop-7"> 牛肋條/牛腱 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-8"> 雞腿排 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-9"> 四季豆 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-10"> 菠菜 × 1組</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-11"> 地瓜 × 1袋</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-12"> 番茄 × 1盒</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>每月補充（約 NT$ 1,500-2,000）</h2>
+                <div class="shopping-list">
+                    <label class="check-item"><input type="checkbox" data-key="shop-13"> 鮭魚 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-14"> 鯛魚片 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-15"> 蝦仁 × 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-16"> 牛絞肉（瘦）× 1包</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-17"> 糙米 × 1袋</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-18"> 燕麥 × 1罐</label>
+                    <label class="check-item"><input type="checkbox" data-key="shop-19"> 堅果 × 1罐</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>蛋白質來源完整清單</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>品項</th>
+                            <th>規格</th>
+                            <th>參考價格</th>
+                            <th>每週建議量</th>
+                            <th>備註</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>雞胸肉（生）</td>
+                            <td>2.5kg/包（6份）</td>
+                            <td>NT$ 350-400</td>
+                            <td>3包</td>
+                            <td>每餐1塊（約400g）</td>
+                        </tr>
+                        <tr>
+                            <td>雞腿排（去骨）</td>
+                            <td>2kg/包</td>
+                            <td>NT$ 380-420</td>
+                            <td>1包</td>
+                            <td>變化用</td>
+                        </tr>
+                        <tr>
+                            <td>牛肋條/牛腱</td>
+                            <td>1.5kg/包</td>
+                            <td>NT$ 650-800</td>
+                            <td>1包</td>
+                            <td>紅肉補鐵</td>
+                        </tr>
+                        <tr>
+                            <td>牛絞肉（瘦）</td>
+                            <td>2kg/包</td>
+                            <td>NT$ 550-650</td>
+                            <td>0.5包</td>
+                            <td>快速料理</td>
+                        </tr>
+                        <tr>
+                            <td>鮭魚輪切</td>
+                            <td>1kg/包</td>
+                            <td>NT$ 550-650</td>
+                            <td>0.5包</td>
+                            <td>Omega-3 來源</td>
+                        </tr>
+                        <tr>
+                            <td>鯛魚片</td>
+                            <td>1kg/包</td>
+                            <td>NT$ 350-400</td>
+                            <td>0.5包</td>
+                            <td>低脂白肉魚</td>
+                        </tr>
+                        <tr>
+                            <td>蝦仁</td>
+                            <td>908g/包</td>
+                            <td>NT$ 450-500</td>
+                            <td>0.5包</td>
+                            <td>變化用</td>
+                        </tr>
+                        <tr>
+                            <td>水煮蛋</td>
+                            <td>20入</td>
+                            <td>NT$ 159</td>
+                            <td>2盒</td>
+                            <td>方便即食</td>
+                        </tr>
+                        <tr>
+                            <td>希臘優格</td>
+                            <td>1kg</td>
+                            <td>NT$ 250-280</td>
+                            <td>2罐</td>
+                            <td>高蛋白低糖</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>補充品</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>品項</th>
+                            <th>規格</th>
+                            <th>參考價格</th>
+                            <th>備註</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight">
+                            <td>MARS 水解乳清隨手包</td>
+                            <td>35g/包（26g蛋白質）</td>
+                            <td>NT$ 50-60/包</td>
+                            <td>每日1-2包，非好市多</td>
+                        </tr>
+                        <tr>
+                            <td>綜合維他命</td>
+                            <td>200錠</td>
+                            <td>NT$ 600-800</td>
+                            <td>營養補充</td>
+                        </tr>
+                        <tr>
+                            <td>魚油</td>
+                            <td>180顆</td>
+                            <td>NT$ 700-900</td>
+                            <td>Omega-3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card budget">
+                <h2>80 天總預算估算</h2>
+                <div class="budget-grid">
+                    <div class="budget-item">
+                        <span class="budget-label">蛋白質來源（含牛肉）</span>
+                        <span class="budget-value">NT$ 45,000-55,000</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">蔬菜類</span>
+                        <span class="budget-value">NT$ 8,000-10,000</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">碳水化合物</span>
+                        <span class="budget-value">NT$ 3,000-4,000</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">健康油脂</span>
+                        <span class="budget-value">NT$ 3,000-4,000</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">調味料</span>
+                        <span class="budget-value">NT$ 2,000-2,500</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">飲品</span>
+                        <span class="budget-value">NT$ 3,000-4,000</span>
+                    </div>
+                    <div class="budget-item">
+                        <span class="budget-label">MARS 水解乳清（80-160包）</span>
+                        <span class="budget-value">NT$ 4,000-9,600</span>
+                    </div>
+                    <div class="budget-item total">
+                        <span class="budget-label">總計</span>
+                        <span class="budget-value">NT$ 68,500-86,000</span>
+                    </div>
+                    <div class="budget-item highlight">
+                        <span class="budget-label">平均每天</span>
+                        <span class="budget-value">NT$ 856-1,075</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 追蹤表 -->
+        <section id="tracker" class="tab-content">
+            <div class="card">
+                <h2>體重追蹤</h2>
+                <div class="weight-input">
+                    <label for="todayWeight">今日體重（kg）：</label>
+                    <input type="number" id="todayWeight" step="0.1" min="50" max="200">
+                    <button id="saveWeight" class="btn-primary">記錄</button>
+                </div>
+                <div id="weightChart" class="chart-container">
+                    <canvas id="weightCanvas"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>體重記錄表</h2>
+                <table id="weightTable">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>Day</th>
+                            <th>體重 (kg)</th>
+                            <th>變化</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 由 JS 動態生成 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>統計資料</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="startWeight">119</span>
+                        <span class="stat-label">起始體重 kg</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="currentWeight">--</span>
+                        <span class="stat-label">目前體重 kg</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="totalLost">--</span>
+                        <span class="stat-label">累計減重 kg</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="targetRemaining">--</span>
+                        <span class="stat-label">距離目標 kg</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>80 天減重計畫 | 目標：119 kg → 99 kg</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
