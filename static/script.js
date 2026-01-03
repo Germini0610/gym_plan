@@ -454,13 +454,13 @@ function closeShoppingModal() {
 // ==================== 每日計畫 ====================
 
 const weeklyExercise = {
-    1: { afternoon: '快走 45 分（5.5 km/h，4 km）', evening: '飛輪 40 分（75 RPM，12 km）' },
-    2: { afternoon: '飛輪 40 分（75 RPM，12 km）', evening: '快走 40 分（5.5 km/h，3.7 km）' },
-    3: { afternoon: '游泳 40 分（休閒配速，1000 m）', evening: '快走 40 分（5.5 km/h，3.7 km）' },
-    4: { afternoon: '快走 45 分（5.5 km/h，4 km）', evening: '飛輪 40 分（75 RPM，12 km）' },
-    5: { afternoon: '飛輪 40 分（75 RPM，12 km）', evening: '快走 40 分（5.5 km/h，3.7 km）' },
-    6: { afternoon: '游泳 45 分（休閒配速，1100 m）', evening: '快走 40 分（5.5 km/h，3.7 km）' },
-    0: { afternoon: '散步 40 分（恢復）', evening: '散步 30 分（恢復）' }
+    1: { evening: '快走 85 分（5.5 km/h，約 7.8 km）' },
+    2: { evening: '飛輪 40 分 + 快走 40 分' },
+    3: { evening: '游泳 40 分 + 快走 40 分' },
+    4: { evening: '快走 85 分（5.5 km/h，約 7.8 km）' },
+    5: { evening: '飛輪 40 分 + 快走 40 分' },
+    6: { evening: '游泳 45 分 + 快走 40 分' },
+    0: { evening: '散步 60 分（恢復）' }
 };
 
 const dayNames = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
@@ -503,11 +503,10 @@ function getSchedule(weekDay, exercise) {
             { time: '09:15', item: '早餐', content: '高蛋白早餐' },
             { time: '10:00-12:00', item: '自由', content: '休息或輕度活動' },
             { time: '12:10', item: '午餐', content: '含碳水午餐' },
-            { time: '13:00-14:00', item: '散步', content: '輕走 40-60 分鐘（恢復性）' },
-            { time: '14:00-17:30', item: '自由', content: '休息、準備下週' },
+            { time: '13:00-17:30', item: '自由', content: '休息、準備下週' },
             { time: '17:30-18:30', item: '煮晚餐', content: '備料、烹調晚餐' },
             { time: '18:30', item: '晚餐', content: '低碳晚餐' },
-            { time: '20:00-20:30', item: '有氧', content: exercise.evening, highlight: true },
+            { time: '20:00-21:00', item: '散步', content: exercise.evening, highlight: true },
             { time: '23:30', item: '就寢', content: '睡眠 7-8 小時' }
         ];
     }
@@ -518,12 +517,11 @@ function getSchedule(weekDay, exercise) {
         { time: '10:00-12:00', item: '工作', content: '接案時間' },
         { time: '12:10', item: '午餐', content: '含碳水午餐' },
         { time: '13:00-13:30', item: '散步', content: '輕走 30 分鐘' },
-        { time: '14:00-14:45', item: '有氧', content: exercise.afternoon, highlight: true },
-        { time: '15:00-15:30', item: '走路', content: '收操 + 輕走' },
-        { time: '15:30-17:30', item: '工作', content: '接案時間' },
+        { time: '14:00-17:30', item: '工作', content: '接案時間' },
         { time: '17:30-18:30', item: '煮晚餐', content: '備料、烹調晚餐' },
         { time: '18:30', item: '晚餐', content: '低碳晚餐' },
-        { time: '20:00-20:40', item: '有氧', content: exercise.evening, highlight: true },
+        { time: '20:00-21:30', item: '有氧', content: exercise.evening, highlight: true },
+        { time: '21:30-22:00', item: '收操', content: '伸展、輕走' },
         { time: '23:30', item: '就寢', content: '睡眠 7-8 小時' }
     ];
 }
