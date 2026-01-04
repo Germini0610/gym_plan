@@ -114,9 +114,9 @@ def insert_default_data(db):
 
     # 預設運動參數
     exercises = [
+        ('居家有氧', '40-50 分鐘', '高抬腿、開合跳、登山者式交替', '-', '250-400 kcal'),
+        ('原地踏步', '30-40 分鐘', '輕度活動、配合手臂擺動', '-', '100-150 kcal'),
         ('快走', '40-50 分鐘', '5.5-6.0 km/h', '3.5-5.0 km', '250-350 kcal'),
-        ('飛輪', '30-40 分鐘', '70-85 RPM / 阻力 3-5', '10-15 km', '250-350 kcal'),
-        ('游泳', '30-40 分鐘', '休閒配速', '800-1200 m', '300-400 kcal'),
     ]
     db.executemany('''
         INSERT INTO exercise_params (name, duration, intensity, distance, calories)
