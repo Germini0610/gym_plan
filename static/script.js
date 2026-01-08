@@ -155,16 +155,24 @@ const totalWeeks = 12; // 80天 = 約 12 週
 
 const dayNames = ['週一', '週二', '週三', '週四', '週五', '週六', '週日'];
 
-// 每週運動安排
+// 每週運動安排（週一=1, 週日=0）
 const weeklyExercise = {
-    1: '居家有氧 30 分鐘',
-    2: '居家有氧 30 分鐘',
-    3: '居家有氧 30 分鐘',
-    4: '居家有氧 30 分鐘',
-    5: '居家有氧 30 分鐘',
-    6: '居家有氧 40 分鐘',
-    0: '休息日（輕度伸展）'
+    1: '快走 85 分（5.5 km/h，約 7.8 km）',
+    2: '飛輪 40 分 + 快走 40 分',
+    3: '游泳 40 分 + 快走 40 分',
+    4: '快走 85 分（5.5 km/h，約 7.8 km）',
+    5: '飛輪 40 分 + 快走 40 分',
+    6: '游泳 45 分 + 快走 40 分',
+    0: '散步 60 分（恢復）'
 };
+
+function getExerciseIcon(exercise) {
+    if (exercise.includes('散步')) return '🚶';
+    if (exercise.includes('游泳')) return '🏊';
+    if (exercise.includes('飛輪')) return '🚴';
+    if (exercise.includes('快走')) return '🏃';
+    return '💪';
+}
 
 function initWeekNavigation() {
     document.getElementById('prevWeek').addEventListener('click', () => {
@@ -205,6 +213,7 @@ function renderWeekExercise(week) {
         const actualWeekDay = (weekDayIndex + 1) % 7; // 轉換為 JS 的星期格式
         const exercise = weeklyExercise[actualWeekDay];
         const isRestDay = actualWeekDay === 0;
+        const icon = getExerciseIcon(exercise);
 
         html += `
             <div class="day-card ${isRestDay ? 'rest-day' : ''}">
@@ -214,7 +223,7 @@ function renderWeekExercise(week) {
                 </div>
                 <div class="day-content">
                     <div class="exercise-item">
-                        <span class="exercise-icon">${isRestDay ? '🧘' : '🏃'}</span>
+                        <span class="exercise-icon">${icon}</span>
                         <span class="exercise-text">${exercise}</span>
                     </div>
                 </div>
