@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>80天減重計畫</title>
-    <!-- Google Fonts: Poppins + Open Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -20,10 +17,8 @@
 
     <nav>
         <button class="nav-btn active" data-tab="overview">總覽</button>
-        <button class="nav-btn" data-tab="daily">每日計畫</button>
-        <button class="nav-btn" data-tab="menu">菜單</button>
-        <button class="nav-btn" data-tab="shopping">採買清單</button>
-        <button class="nav-btn" data-tab="tracker">追蹤表</button>
+        <button class="nav-btn" data-tab="exercise">每日運動</button>
+        <button class="nav-btn" data-tab="weight">體重記錄</button>
     </nav>
 
     <main>
@@ -107,112 +102,23 @@
             </div>
         </section>
 
-        <!-- 每日計畫 -->
-        <section id="daily" class="tab-content">
+        <!-- 每日運動（翻頁式，一頁七天） -->
+        <section id="exercise" class="tab-content">
             <div class="card">
-                <h2>選擇日期</h2>
-                <div class="day-selector">
-                    <label for="currentDay">目前是第幾天：</label>
-                    <input type="number" id="currentDay" min="1" max="80" value="1">
-                    <button id="showDayBtn" class="btn-primary">顯示計畫</button>
+                <div class="week-navigation">
+                    <button class="btn-nav" id="prevWeek">&lt; 上一週</button>
+                    <span class="week-title" id="weekTitle">第 1 週（Day 1 - 7）</span>
+                    <button class="btn-nav" id="nextWeek">下一週 &gt;</button>
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Day <span id="dayNumber">1</span>（<span id="dayOfWeek">週一</span>）</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>時間</th>
-                            <th>項目</th>
-                            <th>內容</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dailySchedule">
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card">
-                <h2>每日檢查清單</h2>
-                <div class="checklist">
-                    <h3>早上</h3>
-                    <label class="check-item"><input type="checkbox" data-key="morning-1"> 量體重並記錄</label>
-                    <label class="check-item"><input type="checkbox" data-key="morning-2"> 喝水 500ml</label>
-                    <label class="check-item"><input type="checkbox" data-key="morning-coffee"> 喝黑咖啡</label>
-                    <label class="check-item"><input type="checkbox" data-key="morning-3"> 吃早餐（高蛋白）</label>
-
-                    <h3>中午</h3>
-                    <label class="check-item"><input type="checkbox" data-key="noon-1"> 吃午餐（含碳水）</label>
-
-                    <h3>晚上</h3>
-                    <label class="check-item"><input type="checkbox" data-key="evening-1"> 吃晚餐（低碳）</label>
-                    <label class="check-item"><input type="checkbox" data-key="evening-2"> 完成有氧運動</label>
-                    <label class="check-item"><input type="checkbox" data-key="evening-3"> 收操走路 20-30 分鐘</label>
-                    <label class="check-item"><input type="checkbox" data-key="evening-4"> 23:30 前就寢</label>
-
-                    <h3>每日必達</h3>
-                    <label class="check-item"><input type="checkbox" data-key="daily-1"> 喝水 2000-3000ml</label>
-                    <label class="check-item"><input type="checkbox" data-key="daily-2"> 蛋白質攝取 180g 以上</label>
-                    <label class="check-item"><input type="checkbox" data-key="daily-3"> 睡眠 7-8 小時</label>
-                </div>
+            <div class="week-grid" id="weekGrid">
+                <!-- 七天的運動卡片會由 JS 動態生成 -->
             </div>
         </section>
 
-        <!-- 菜單 -->
-        <section id="menu" class="tab-content">
-            <div class="card today-meals-card">
-                <h2>今日飲食記錄</h2>
-                <p class="hint">點擊下方菜單卡片即可記錄今天吃了什麼</p>
-                <div id="todayMealsSummary">
-                    <p class="no-record">今日尚未記錄任何餐點</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>早餐選項（450-600 kcal）
-                    <button class="btn-add" onclick="showMealModal('breakfast')">+ 新增</button>
-                </h2>
-                <div class="menu-grid" id="breakfastGrid">
-                    <div class="loading">載入中...</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>午餐選項（650-800 kcal）
-                    <button class="btn-add" onclick="showMealModal('lunch')">+ 新增</button>
-                </h2>
-                <div class="menu-grid" id="lunchGrid">
-                    <div class="loading">載入中...</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>晚餐選項（550-750 kcal）
-                    <button class="btn-add" onclick="showMealModal('dinner')">+ 新增</button>
-                </h2>
-                <div class="menu-grid" id="dinnerGrid">
-                    <div class="loading">載入中...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 採買清單 -->
-        <section id="shopping" class="tab-content">
-            <div id="shoppingList">
-                <div class="loading">載入中...</div>
-            </div>
-        </section>
-
-        <!-- 追蹤表 -->
-        <section id="tracker" class="tab-content">
-            <div class="card">
-                <h2>飲食記錄歷史</h2>
-                <div id="mealHistoryContainer">
-                    <div class="loading">載入中...</div>
-                </div>
-            </div>
-
+        <!-- 體重記錄 -->
+        <section id="weight" class="tab-content">
             <div class="card">
                 <h2>體重追蹤</h2>
                 <div class="weight-input">
@@ -223,24 +129,6 @@
                 <div class="chart-container">
                     <canvas id="weightCanvas"></canvas>
                 </div>
-            </div>
-
-            <div class="card">
-                <h2>體重記錄表</h2>
-                <table id="weightTable">
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>Day</th>
-                            <th>體重 (kg)</th>
-                            <th>變化</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td colspan="5" class="loading">載入中...</td></tr>
-                    </tbody>
-                </table>
             </div>
 
             <div class="card">
@@ -264,90 +152,55 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <h2>體重記錄表</h2>
+                <table id="weightTable">
+                    <thead>
+                        <tr>
+                            <th>日期</th>
+                            <th>Day</th>
+                            <th>體重 (kg)</th>
+                            <th>變化</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="5" class="loading">載入中...</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
-    <!-- 菜單 Modal -->
-    <div class="modal" id="mealModal">
+    <!-- 運動項目 Modal -->
+    <div class="modal" id="exerciseModal">
         <div class="modal-content">
-            <h3 id="mealModalTitle">新增菜單</h3>
-            <form id="mealForm" onsubmit="event.preventDefault(); saveMeal();">
-                <input type="hidden" id="mealId">
+            <h3 id="exerciseModalTitle">新增運動項目</h3>
+            <form id="exerciseForm" onsubmit="event.preventDefault(); saveExercise();">
+                <input type="hidden" id="exerciseId">
                 <div class="form-group">
-                    <label>餐別</label>
-                    <select id="mealType" required>
-                        <option value="breakfast">早餐</option>
-                        <option value="lunch">午餐</option>
-                        <option value="dinner">晚餐</option>
-                    </select>
+                    <label>運動類型</label>
+                    <input type="text" id="exerciseName" placeholder="例：快走" required>
                 </div>
                 <div class="form-group">
-                    <label>名稱</label>
-                    <input type="text" id="mealName" required>
+                    <label>時間</label>
+                    <input type="text" id="exerciseDuration" placeholder="例：85 分鐘" required>
                 </div>
                 <div class="form-group">
-                    <label>食材（用逗號分隔）</label>
-                    <textarea id="mealIngredients" placeholder="例：雞胸肉 350g, 青花菜 250g, 糙米飯 180g"></textarea>
+                    <label>速率/強度</label>
+                    <input type="text" id="exerciseIntensity" placeholder="例：5.5 km/h">
                 </div>
                 <div class="form-group">
-                    <label>熱量 (kcal)</label>
-                    <input type="number" id="mealCalories" required>
+                    <label>預估距離</label>
+                    <input type="text" id="exerciseDistance" placeholder="例：約 7.8 km">
                 </div>
                 <div class="form-group">
-                    <label>蛋白質 (g)</label>
-                    <input type="number" id="mealProtein" required>
+                    <label>預估消耗</label>
+                    <input type="text" id="exerciseCalories" placeholder="例：550-650 kcal">
                 </div>
                 <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="closeMealModal()">取消</button>
-                    <button type="submit" class="btn-primary">儲存</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- 採買 Modal -->
-    <div class="modal" id="shoppingModal">
-        <div class="modal-content">
-            <h3 id="shoppingModalTitle">新增採買項目</h3>
-            <form id="shoppingForm" onsubmit="event.preventDefault(); saveShoppingItem();">
-                <input type="hidden" id="shoppingId">
-                <div class="form-group">
-                    <label>類別</label>
-                    <select id="shoppingCategory" required>
-                        <option value="protein">蛋白質來源</option>
-                        <option value="vegetable">蔬菜類</option>
-                        <option value="carb">碳水化合物</option>
-                        <option value="oil">健康油脂</option>
-                        <option value="supplement">補充品</option>
-                        <option value="drink">飲品</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>品項名稱</label>
-                    <input type="text" id="shoppingName" required>
-                </div>
-                <div class="form-group">
-                    <label>品牌/廠商</label>
-                    <input type="text" id="shoppingBrand" placeholder="例：卜蜂、Kirkland">
-                </div>
-                <div class="form-group">
-                    <label>規格</label>
-                    <input type="text" id="shoppingSpec" placeholder="例：2.5kg/包（冷凍區）">
-                </div>
-                <div class="form-group">
-                    <label>參考價格</label>
-                    <input type="text" id="shoppingPrice" placeholder="例：NT$ 350-400">
-                </div>
-                <div class="form-group">
-                    <label>每週建議量</label>
-                    <input type="text" id="shoppingAmount" placeholder="例：3包">
-                </div>
-                <div class="form-group">
-                    <label>備註</label>
-                    <input type="text" id="shoppingNote">
-                </div>
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="closeShoppingModal()">取消</button>
+                    <button type="button" class="btn-secondary" onclick="closeExerciseModal()">取消</button>
                     <button type="submit" class="btn-primary">儲存</button>
                 </div>
             </form>
@@ -362,9 +215,5 @@
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
 </body>
 </html>

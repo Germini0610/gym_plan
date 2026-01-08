@@ -821,6 +821,147 @@ tr.highlight {
     background: linear-gradient(135deg, var(--danger) 0%, #DC2626 100%);
 }
 
+/* ==================== Week Navigation ==================== */
+.week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.week-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.btn-nav {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition);
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
+}
+
+.btn-nav:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+.btn-nav:disabled {
+    background: var(--border);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ==================== Week Grid ==================== */
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.day-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition);
+}
+
+.day-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.day-card.rest-day {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border-color: var(--warning);
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+.day-card.rest-day .day-header {
+    border-bottom-color: var(--warning);
+}
+
+.day-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.day-card.rest-day .day-number {
+    color: var(--secondary-dark);
+}
+
+.day-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+}
+
+.day-card.rest-day .day-name {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.day-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.exercise-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: var(--bg);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+
+.day-card.rest-day .exercise-item {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.exercise-icon {
+    font-size: 1.5rem;
+}
+
+.exercise-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Cardio badge */
+.badge.cardio {
+    background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);
+}
+
 /* ==================== Footer ==================== */
 footer {
     text-align: center;
@@ -931,6 +1072,34 @@ footer {
         left: 1rem;
         right: 1rem;
         bottom: 1rem;
+    }
+
+    /* Week navigation responsive */
+    .week-navigation {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .week-title {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .btn-nav {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .week-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        padding: 1.25rem;
+    }
+
+    .day-number {
+        font-size: 1.1rem;
     }
 }
 
