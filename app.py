@@ -26,7 +26,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not session.get('logged_in'):
-            return redirect(url_for('login'))
+            return redirect('login')
         return f(*args, **kwargs)
     return decorated_function
 
@@ -39,7 +39,7 @@ def login():
         password = request.form.get('password')
         if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
             session['logged_in'] = True
-            return redirect(url_for('index'))
+            return redirect('./')
         else:
             error = '帳號或密碼錯誤'
     return render_template('login.html', error=error)
@@ -48,7 +48,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
-    return redirect(url_for('login'))
+    return redirect('login')
 
 
 # ==================== 頁面路由 ====================
