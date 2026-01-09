@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, jsonify
 from database import init_db, get_db
 import json
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
+app = Flask(__name__, static_folder='.', static_url_path='', template_folder='.')
 app.config['JSON_AS_ASCII'] = False
 
 # 初始化資料庫
