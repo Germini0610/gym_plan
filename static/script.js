@@ -11,7 +11,7 @@ async function api(endpoint, method = 'GET', data = null) {
     };
     if (data) options.body = JSON.stringify(data);
 
-    const response = await fetch(`/api${endpoint}`, options);
+    const response = await fetch(`api${endpoint}`, options);
     return response.json();
 }
 
