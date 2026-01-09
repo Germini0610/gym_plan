@@ -129,6 +129,38 @@ sudo firewall-cmd --reload
 
 ---
 
+## Nginx 反向代理設定（子路徑）
+
+如果要將此服務掛在現有網域的子路徑下（例如 `https://yourdomain.com/fitness`），在 Nginx 設定檔的 `server` 區塊中加入：
+
+```nginx
+# 健身計畫服務
+location /fitness {
+    # 確保有尾斜線
+    rewrite ^/fitness$ /fitness/ permanent;
+
+    # 去掉 /fitness 前綴再傳給 Flask
+    rewrite ^/fitness(.*)$ $1 break;
+    proxy_pass http://127.0.0.1:5000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+設定完成後執行：
+
+```bash
+# 測試設定
+sudo nginx -t
+
+# 重載 Nginx
+sudo systemctl reload nginx
+```
+
+---
+
 ## 資料庫說明
 
 - 使用 SQLite，資料庫檔案為 `fitness.db`
